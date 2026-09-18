@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Balasubramanian G</title>
-<meta name="description" content="Full-stack MERN &amp; PHP developer portfolio — projects, skills, and resume.">
+<meta name="description" content="Full-stack MERN &amp; PHP developer portfolio — projects, skills, resume, and contact form.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -83,6 +83,7 @@
 
   .wrap{max-width:1080px; margin-inline:auto;}
   section{scroll-margin-top:76px;}
+  main{scroll-margin-top:76px;}
 
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
     outline:2.5px solid var(--accent);
@@ -264,7 +265,7 @@
   .placeholder-link{
     border:1px dashed var(--line); border-radius:8px; padding:9px 12px; font-size:.82rem;
     color:var(--ink-soft); display:flex; align-items:center; justify-content:space-between; gap:8px;
-    text-decoration:none;
+    text-decoration:none; cursor:default;
   }
   .placeholder-link:hover{border-color:var(--accent); color:var(--accent);}
 
@@ -299,12 +300,13 @@
   .card p{color:var(--ink-soft); font-size:.92rem; margin:0;}
   .card .skill-tags{margin-top:2px;}
   .link-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:6px;}
-  .link-row a{
+  .link-row a, .link-row span{
     font-size:.78rem; font-weight:600; text-decoration:none; padding:7px 11px; border-radius:8px;
     border:1px dashed var(--line); color:var(--ink-soft); display:inline-flex; align-items:center; gap:6px;
   }
   .link-row a:hover{border-color:var(--accent); border-style:solid; color:var(--accent);}
-  .link-row a b{font-weight:700;}
+  .link-row a b, .link-row span b{font-weight:700;}
+  .link-row span{cursor:default; opacity:.75;}
 
   /* ================= CONTACT ================= */
   .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
@@ -315,6 +317,10 @@
     background:var(--bg-raised); color:var(--ink); resize:vertical;
   }
   .field input:focus, .field textarea:focus{border-color:var(--accent);}
+  .contact-form{
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:24px; box-shadow:var(--shadow);
+  }
   .social-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
   .social-list a{
     display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink);
@@ -325,6 +331,7 @@
   .social-list .ic{width:34px;height:34px;border-radius:9px; background:var(--accent-soft); color:var(--accent); display:grid; place-items:center; flex:none;}
   .form-note{font-size:.78rem; color:var(--ink-soft); margin-top:4px;}
   #sendState{font-size:.85rem; color:var(--accent); font-weight:600; margin-top:6px; min-height:1.2em;}
+  .contact-aside-label{font-size:.82rem; font-weight:600; color:var(--ink-soft); margin-bottom:12px; display:block;}
 
   @media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
 
@@ -349,7 +356,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top"><span class="dot"></span> Balasubramanian&nbsp;G</a>
+    <a class="brand" href="#main"><span class="dot"></span> Balasubramanian&nbsp;G</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#resume">Resume</a></li>
@@ -364,7 +371,7 @@
   </div>
 </nav>
 
-<main id="main" class="wrap" id="top">
+<main id="main" class="wrap">
 
   <!-- ================= HERO ================= -->
   <header class="hero">
@@ -374,11 +381,11 @@
       <p class="lede">8 years in software development — 7.4 of them shipping production web applications. These days I'm deepening my MERN practice: React interfaces, Node/Express APIs, and MongoDB-backed features, built with the same care I bring to PHP and Laravel work.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">View projects →</a>
-        <a class="btn btn-ghost" href="#resume">See resume</a>
+
       </div>
     </div>
     <div>
-  
+
       <div class="stats">
         <div class="stat"><b>8</b><span>Years experience</span></div>
         <div class="stat"><b>5</b><span>Companies</span></div>
@@ -412,10 +419,6 @@
     <div class="section-head">
       <span class="kicker">02 · Resume</span>
       <h2>Experience &amp; education</h2>
-      <p class="section-intro">The short version lives here. Print this page (or your browser's "Save as PDF") for a clean copy — or swap the card on the right for a hosted link to the full resume file.</p>
-      <div class="hero-cta" style="margin-top:16px;">
-        <button class="btn btn-primary" id="printBtn" type="button">🖨️ Print / Save resume as PDF</button>
-      </div>
     </div>
 
     <div class="resume-cols">
@@ -532,8 +535,8 @@
   <section id="projects" class="section reveal">
     <div class="section-head">
       <span class="kicker">04 · Projects</span>
-      <h2>MERN stack projects</h2>
-      <p class="section-intro">Three full-stack builds — frontend, backend, and database each called out. Repo and live links are placeholders (dashed) until you publish them — swap the href/text and they'll look identical to a live link.</p>
+      <h2>Full-stack development (FSD) projects</h2>
+      <p class="section-intro">Three original full-stack builds — not course assignments or class exercises — each with frontend, backend, and database work called out below. "View code" opens my GitHub; "Live demo" is a placeholder until each app is deployed — swap that span for a real link once it's hosted.</p>
     </div>
     <div class="projects-grid">
 
@@ -547,7 +550,6 @@
           <span class="pill">React.js</span><span class="pill">Redux Toolkit</span><span class="pill">Node.js</span>
           <span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">JWT</span>
         </div>
-
       </article>
 
       <article class="card">
@@ -559,6 +561,7 @@
         <div class="skill-tags">
           <span class="pill">React.js</span><span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">REST APIs</span>
         </div>
+
       </article>
 
       <article class="card">
@@ -570,7 +573,6 @@
         <div class="skill-tags">
           <span class="pill">React.js</span><span class="pill">Node.js</span><span class="pill">REST APIs</span><span class="pill">Tailwind CSS</span>
         </div>
-
       </article>
 
     </div>
@@ -581,15 +583,37 @@
     <div class="section-head">
       <span class="kicker">05 · Contact</span>
       <h2>Let's work together</h2>
+      <p class="section-intro">Send a message directly below, or reach out through email, phone, or social.</p>
     </div>
     <div class="contact-grid">
 
-      <ul class="social-list">
-        <li><a href="mailto:balagomathinayagam@gmail.com"><span class="ic">✉️</span> balagomathinayagam@gmail.com</a></li>
-        <li><a href="tel:+918870706988"><span class="ic">📱</span> +91 88707 06988</a></li>
-        <li><a href="https://linkedin.com/in/bala-subramanian-a73869167" target="_blank" rel="noopener"><span class="ic">in</span> linkedin.com/in/bala-subramanian-a73869167</a></li>
-        <li><a href="https://github.com/balagood" target="_blank" rel="noopener"><span class="ic">⌥</span> github.com/balagood</a></li>
-      </ul>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="What would you like to talk about?" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send message →</button>
+        <p class="form-note">This opens your default email app with the message pre-filled — nothing leaves this page on its own, so nothing is stored or sent silently.</p>
+        <p id="sendState" role="status" aria-live="polite"></p>
+      </form>
+
+      <div>
+        <span class="contact-aside-label">Or reach me directly</span>
+        <ul class="social-list">
+          <li><a href="mailto:balagomathinayagam@gmail.com"><span class="ic">✉️</span> balagomathinayagam@gmail.com</a></li>
+          <li><a href="tel:+918870706988"><span class="ic">📱</span> +91 88707 06988</a></li>
+          <li><a href="https://linkedin.com/in/bala-subramanian-a73869167" target="_blank" rel="noopener"><span class="ic">in</span> linkedin.com/in/bala-subramanian-a73869167</a></li>
+          <li><a href="https://github.com/balagood" target="_blank" rel="noopener"><span class="ic">⌥</span> github.com/balagood</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -648,11 +672,38 @@
   }
 
   // ---- Print resume ----
-  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+  //document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
 
   // ---- Contact form -> mailto ----
-  //var form = document.getElementById('contactForm');
-  //var stateEl = document.getElementById('sendState');
+  var CONTACT_EMAIL = 'balagomathinayagam@gmail.com';
+  var form = document.getElementById('contactForm');
+  var stateEl = document.getElementById('sendState');
+  if (form && stateEl){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.elements['name'].value.trim();
+      var email = form.elements['email'].value.trim();
+      var message = form.elements['message'].value.trim();
+
+      if (!name || !email || !message){
+        stateEl.textContent = 'Please fill in all fields before sending.';
+        return;
+      }
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)){
+        stateEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      var subject = encodeURIComponent('Portfolio contact from ' + name);
+      var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      var mailto = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+
+      window.location.href = mailto;
+      stateEl.textContent = 'Opening your email app with the message pre-filled…';
+      form.reset();
+    });
+  }
 })();
 </script>
 
