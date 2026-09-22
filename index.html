@@ -381,7 +381,6 @@
       <p class="lede">8 years in software development — 7.4 of them shipping production web applications. These days I'm deepening my MERN practice: React interfaces, Node/Express APIs, and MongoDB-backed features, built with the same care I bring to PHP and Laravel work.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">View projects →</a>
-
       </div>
     </div>
     <div>
@@ -535,8 +534,8 @@
   <section id="projects" class="section reveal">
     <div class="section-head">
       <span class="kicker">04 · Projects</span>
-      <h2>Full-stack development (FSD) projects</h2>
-      <p class="section-intro">Three original full-stack builds — not course assignments or class exercises — each with frontend, backend, and database work called out below. "View code" opens my GitHub; "Live demo" is a placeholder until each app is deployed — swap that span for a real link once it's hosted.</p>
+      <h2>MERN stack projects</h2>
+      <p class="section-intro">Three complete MERN stack builds — original work, not GUVI course tasks (only a Capstone project carries that label, per program guidelines). Each card lists the tech stack and reserves labeled slots for the frontend repo, backend repo, and live deployment — swap each placeholder for the real link as soon as that project is hosted.</p>
     </div>
     <div class="projects-grid">
 
@@ -550,6 +549,11 @@
           <span class="pill">React.js</span><span class="pill">Redux Toolkit</span><span class="pill">Node.js</span>
           <span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">JWT</span>
         </div>
+        <div class="link-row">
+          <span title="Add your frontend GitHub repo link here">🎨<a href="https://github.com/balagood/pet-adpotation/tree/main/frontend">Frontend Github Link</a></span>
+          <span title="Add your backend GitHub repo link here">⚙️<a href="https://github.com/balagood/pet-adpotation/tree/main/backend">Backend Github Link</a></span>
+          <span title="Add your deployed app URL here">🔗<a href="https://petadoptionstask.netlify.app/">Live demo</a></span>
+        </div>
       </article>
 
       <article class="card">
@@ -561,7 +565,11 @@
         <div class="skill-tags">
           <span class="pill">React.js</span><span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">MongoDB</span><span class="pill">REST APIs</span>
         </div>
-
+        <div class="link-row">
+          <span title="Add your frontend GitHub repo link here"><b>🎨</b> Frontend repo — coming soon</span>
+          <span title="Add your backend GitHub repo link here"><b>⚙️</b> Backend repo — coming soon</span>
+          <span title="Add your deployed app URL here"><b>🔗</b> Live demo — coming soon</span>
+        </div>
       </article>
 
       <article class="card">
@@ -572,6 +580,11 @@
         <p>End-to-end account recovery flow: email verification, automated reset-link delivery, and clear error handling for invalid or unregistered addresses — built on a Node.js API with a React + Tailwind front end.</p>
         <div class="skill-tags">
           <span class="pill">React.js</span><span class="pill">Node.js</span><span class="pill">REST APIs</span><span class="pill">Tailwind CSS</span>
+        </div>
+        <div class="link-row">
+          <span title="Add your frontend GitHub repo link here">🎨<a href="https://github.com/balagood/balasubramanian-password-reset/tree/main/frondend">Frontend Github Link</a></span>
+          <span title="Add your backend GitHub repo link here">⚙️<a href="https://github.com/balagood/balasubramanian-password-reset/tree/main/backend">Backend Github Link</a></span>
+          <span title="Add your deployed app URL here">🔗<a href="https://passwordresetfrondend.netlify.app/">Live demo</a></span>
         </div>
       </article>
 
@@ -672,7 +685,8 @@
   }
 
   // ---- Print resume ----
-  //document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+  var printBtn = document.getElementById('printBtn');
+  if (printBtn){ printBtn.addEventListener('click', function(){ window.print(); }); }
 
   // ---- Contact form -> mailto ----
   var CONTACT_EMAIL = 'balagomathinayagam@gmail.com';
